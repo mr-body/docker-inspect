@@ -10,7 +10,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       ADMIN_USER: "admin"
-      ADMIN_PASSWORD: "admin123" 
+      ADMIN_PASSWORD: "admin" 
     networks:
       - docker-inspect
 
@@ -23,8 +23,8 @@ services:
     depends_on:
       - docker-inspect-api
     environment:
-      SERVER: "http://212.85.1.223:8000"
-      WS_SERVER: "ws://212.85.1.223:8000"
+      SERVER: "http://localhost:8000"
+      WS_SERVER: "ws://localhost:8000"
     networks:
       - docker-inspect
 

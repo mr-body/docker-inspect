@@ -1,0 +1,6 @@
+[submodule "docker-inspect-api"]
+	path = docker-inspect-api
+	url = git@github.com:mr-body/docker-inspect-api.git
+[submodule "docker-inspect-ui"]
+	path = docker-inspect-ui
+	url = git@github.com:mr-body/docker-inspect-ui.git
