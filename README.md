@@ -3,6 +3,8 @@
 Docker Inspect é uma ferramenta que permite inspecionar e interagir com o ambiente Docker através de uma API HTTP e uma interface web amigável. O projeto é organizado em dois serviços separados (API e UI) empacotados e orquestrados via Docker Compose.
 
 ---
+![Screenshot](./.github/assets/Screenshot%20from%202026-06-19%2018-30-18.png)
+---
 
 ## Features / Funcionalidades
 
