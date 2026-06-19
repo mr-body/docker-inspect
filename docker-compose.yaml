@@ -2,6 +2,8 @@ services:
 
   docker-inspect-api:
     container_name: docker-inspect-api
+    image: docker-inspect-api
+    pull_policy: never
     build: ./docker-inspect-api
     restart: unless-stopped
     ports:
@@ -16,6 +18,8 @@ services:
 
   docker-inspect-ui:
     container_name: docker-inspect-ui
+    image: docker-inspect-ui
+    pull_policy: never
     build: ./docker-inspect-ui
     restart: unless-stopped
     ports:
@@ -23,8 +27,8 @@ services:
     depends_on:
       - docker-inspect-api
     environment:
-      SERVER: "http://localhost:8000"
-      WS_SERVER: "ws://localhost:8000"
+      SERVER: "http://212.85.1.223:8000"
+      WS_SERVER: "ws://212.85.1.223:8000"
     networks:
       - docker-inspect
 

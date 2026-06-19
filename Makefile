@@ -1,5 +1,5 @@
 REGISTRY = mrbody
-TAG = beta.0.4
+TAG = beta.0.1
 
 API = docker-inspect-api
 UI = docker-inspect-ui
