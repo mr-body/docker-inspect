@@ -1,0 +1,33 @@
+services:
+
+  docker-inspect-api:
+    container_name: docker-inspect-api
+    build: ./docker-inspect-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      ADMIN_USER: "admin"
+      ADMIN_PASSWORD: "admin123" 
+    networks:
+      - docker-inspect
+
+  docker-inspect-ui:
+    container_name: docker-inspect-ui
+    build: ./docker-inspect-ui
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    depends_on:
+      - docker-inspect-api
+    environment:
+      SERVER: "http://212.85.1.223:8000"
+      WS_SERVER: "ws://212.85.1.223:8000"
+    networks:
+      - docker-inspect
+
+networks:
+  docker-inspect:
+    driver: bridge
