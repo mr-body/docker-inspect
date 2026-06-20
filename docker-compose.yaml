@@ -1,10 +1,8 @@
 services:
 
   docker-inspect-api:
-    container_name: docker-inspect-api
-    image: docker-inspect-api
-    pull_policy: never
-    build: ./docker-inspect-api
+    container_name: docker-inspect-api-beta
+    image: mrbody/docker-inspect-api:beta.0.1
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -15,20 +13,18 @@ services:
       ADMIN_PASSWORD: "admin" 
     networks:
       - docker-inspect
-
+      
   docker-inspect-ui:
-    container_name: docker-inspect-ui
-    image: docker-inspect-ui
-    pull_policy: never
-    build: ./docker-inspect-ui
+    container_name: docker-inspect-ui-beta
+    image:  mrbody/docker-inspect-ui:beta.0.1
     restart: unless-stopped
     ports:
-      - "3001:3000"
+      - "3000:3000"
     depends_on:
       - docker-inspect-api
     environment:
-      SERVER: "http://212.85.1.223:8000"
-      WS_SERVER: "ws://212.85.1.223:8000"
+      SERVER: "http://localhost:8000"
+      WS_SERVER: "ws://localhost:8000"
     networks:
       - docker-inspect
 
